@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="theme-color" content="#05070a" />
+<title>Morse Spy Decoder</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div id="app">
+  <header class="topbar">
+    <span class="title">MORSE SPY DECODER</span>
+    <button id="btn-mute" class="icon-btn" aria-label="Silenciar audio">🔊</button>
+  </header>
+
+  <main id="stage">
+
+    <section id="screen-start" class="screen active">
+      <h1>MORSE SPY DECODER</h1>
+      <p class="lede">Escucha el pulso. Repite el patrón. Descifra la red.</p>
+      <button id="btn-start" class="btn-primary">Iniciar infiltración</button>
+      <button id="btn-continue-save" class="btn-secondary" style="display:none;"></button>
+      <p class="hint">Recomendado: usa auriculares. El sonido es parte del juego.</p>
+    </section>
+
+    <section id="screen-briefing" class="screen">
+      <h2 id="briefing-title"></h2>
+      <div id="briefing-text" class="terminal-text"></div>
+      <button id="btn-briefing-continue" class="btn-primary">Conectar</button>
+    </section>
+
+    <section id="screen-game" class="screen">
+      <div class="hud">
+        <div class="hud-left"><span id="node-label"></span></div>
+        <div class="hud-mid">
+          <span id="score-label">PTS 0</span>
+          <span id="combo-badge"></span>
+        </div>
+        <div class="hud-right">
+          <span class="alarm-label">ALARMA</span>
+          <span id="alarm-meter" class="alarm-meter"></span>
+        </div>
+      </div>
+
+      <div id="track-wrap" class="track-wrap">
+        <span class="track-label">RASTREO</span>
+        <span class="track-bar"><span id="track-fill" class="track-fill"></span></span>
+      </div>
+
+      <div id="decoded-word" class="decoded-word" aria-live="polite"></div>
+
+      <canvas id="signal-canvas" width="260" height="50"></canvas>
+
+      <div id="pattern-hint" class="pattern-hint" aria-hidden="true"></div>
+
+      <div class="controls">
+        <button id="btn-listen" class="btn-secondary">▶ Escuchar señal</button>
+      </div>
+
+      <div id="decode-wrap" class="decode-wrap">
+        <button id="btn-decode" class="decode-button" aria-label="Botón descodificador, mantén pulsado para punto o raya">
+          <span id="decode-led" class="decode-led"></span>
+        </button>
+        <div id="particle-layer" aria-hidden="true"></div>
+      </div>
+
+      <div id="feedback-line" class="feedback-line" aria-live="polite"></div>
+    </section>
+
+    <section id="screen-post" class="screen">
+      <h2 id="post-title"></h2>
+      <div id="post-text" class="terminal-text"></div>
+      <button id="btn-post-continue" class="btn-primary">Continuar</button>
+    </section>
+
+    <section id="screen-end" class="screen">
+      <h2>TRANSMISIÓN FINALIZADA</h2>
+      <div id="end-text" class="terminal-text"></div>
+      <button id="btn-restart" class="btn-primary">Reiniciar infiltración</button>
+    </section>
+
+    <div id="crt-overlay" aria-hidden="true"></div>
+  </main>
+</div>
+
+<script src="js/morse.js"></script>
+<script src="js/story.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/game.js"></script>
+</body>
+</html>

@@ -141,6 +141,7 @@
   }
 
   function showBriefing(idx) {
+    state.missionIndex = idx;
     var m = Story.MISSIONS[idx];
     // Bifurcación: si el nodo anterior terminó con la alarma alta (o hubo
     // que reiniciarlo), se usa un briefing alternativo, si existe.
